@@ -1,0 +1,24 @@
+Prepared by Gurkan Solmaz 12/02/2013
+
+To run the program in Linux:
+	Export jar 
+	Go to the same directory of the jar in terminal
+	Put an input file to HDFS
+	Specify the input and output locations in HDFS as program arguments of Java
+	Run the following command
+
+Program arguments for the master node: (4 arguments)
+master <NumberOfSlaves>  <TotalTime> <MainOutputDirectory>  
+Ex: 
+hadoop -jar SocialNode.jar  master 4 6000 /user/gurkan/SocialNode/
+
+Program arguments for slave node: (7 arguments)
+slave <NumberOfSlaves>  <TotalTime> <ReceiverDirectory> <SlaveIndex> <MaliciousnessLevel> <MaliciousActivityStartTime>
+Ex: 
+hadoop -jar SocialNode.jar slave 4  6000 /user/gurkan/SocialNode/ 2 0.9 1200
+
+To run the program in Eclipse "hdfs://localhost:54310/" must be added to the beginning of the path argument
+(i.e. hdfs://localhost:54310/user/gurkan/SocialNode)
+
+You may see the output results in the specified main output directory for overall results
+and in receiver directories for the results of slaves.
